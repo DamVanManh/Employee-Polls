@@ -8,8 +8,8 @@ const PageNotFound = () => {
   };
 
   return (
-    <div>
-      <h1>404 Error Page</h1>
+    <div className="text-center">
+      <h1>404 Error</h1>
       <p>The page does not exist</p>
       <button type="submit" onClick={handleClick} className="btn btn-primary">
         Go to Home

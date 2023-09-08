@@ -56,6 +56,7 @@ const Navbar = ({ name, avatarURL, dispatch }) => {
             <button
               className="btn btn-outline-secondary"
               onClick={handleLogout}
+              data-testid="log-out-btn"
             >
               Logout
             </button>

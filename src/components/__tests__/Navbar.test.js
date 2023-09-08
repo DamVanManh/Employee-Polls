@@ -20,7 +20,7 @@ describe("Test Nav click", () => {
       </Provider>
     );
 
-    const link = screen.getByTestId("new-question-btn");
+    const link = view.getByTestId("new-question-btn");
     fireEvent.click(link);
     await view.findByText(/Create Your Own Poll/i);
   });

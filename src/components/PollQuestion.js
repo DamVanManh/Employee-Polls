@@ -9,9 +9,7 @@ const PollQuestion = ({ user, questions, users, dispatch }) => {
 
   const question_id = useParams().question_id;
   const question = questions[question_id];
-  if (!question) {
-    navigate("/pagenotfound");
-  }
+
   const avatar = users[question?.author]?.avatarURL;
 
   const getPercent = (option) => {
@@ -22,17 +20,17 @@ const PollQuestion = ({ user, questions, users, dispatch }) => {
   };
 
   useEffect(() => {
+    if (!question) {
+      navigate("/pagenotfound");
+    }
+
     const idAnswereds = Object.keys(users[user].answers);
     if (idAnswereds.includes(question_id)) {
       setAnswered(true);
     } else {
       setAnswered(false);
     }
-  }, []);
-
-  const clickBack = () => {
-    navigate("/");
-  };
+  }, [question]);
 
   const clickAnswer = (e) => {
     e.preventDefault();
@@ -43,7 +41,6 @@ const PollQuestion = ({ user, questions, users, dispatch }) => {
         option: e.target.name,
       })
     );
-    navigate("/");
   };
 
   return (
@@ -104,7 +101,7 @@ const PollQuestion = ({ user, questions, users, dispatch }) => {
                 <button
                   type="button"
                   className="btn btn-primary"
-                  onClick={clickBack}
+                  onClick={() => navigate("/")}
                 >
                   Back to Home
                 </button>

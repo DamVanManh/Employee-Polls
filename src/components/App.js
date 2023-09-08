@@ -34,12 +34,12 @@ const App = ({ user, dispatch }) => {
         <>
           <Navbar />
           <Routes>
-            <Route exact path="/" element={<Dashboard />} />
+            <Route exact path="/pagenotfound" element={<PageNotFound />} />
+            <Route path="/" element={<Dashboard />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/add" element={<AddQuestion />} />
             <Route path="/questions/:question_id" element={<PollQuestion />} />
-            <Route path="/pagenotfound" exact element={<PageNotFound />} />
-            <Route path="*" element={<PageNotFound />} />
+            <Route path="*" component={<PageNotFound />} />
           </Routes>
         </>
       )}
